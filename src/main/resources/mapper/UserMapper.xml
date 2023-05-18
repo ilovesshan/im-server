@@ -11,4 +11,8 @@
     <select id="selectByIdOrUsername" resultType="friendVo">
         select id , username , image from user where username like #{kw} or id = #{kw};
     </select>
+
+    <select id="selectByIds" resultType="userVo">
+        select id , username , image from user where id = #{id};
+    </select>
 </mapper>

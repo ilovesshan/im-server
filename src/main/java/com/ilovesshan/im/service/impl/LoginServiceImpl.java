@@ -1,11 +1,13 @@
 package com.ilovesshan.im.service.impl;
 
 import com.ilovesshan.im.core.exception.ImException;
+import com.ilovesshan.im.core.utils.JwtUtil;
 import com.ilovesshan.im.mapper.UserMapper;
 import com.ilovesshan.im.model.dto.UserDto;
 import com.ilovesshan.im.model.po.User;
+import com.ilovesshan.im.model.vo.UserVo;
 import com.ilovesshan.im.service.LoginService;
-import com.ilovesshan.im.core.utils.JwtUtil;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -33,12 +35,13 @@ public class LoginServiceImpl implements LoginService {
         if (Objects.isNull(user)) {
             throw new ImException("用户名或者密码错误");
         }
-
-        // 删除用户密码并生成token
-        user.setPassword("");
+        // 生成token
         String token = JwtUtil.generatorToken(user);
+
+        UserVo userVo = new UserVo();
+        BeanUtils.copyProperties(user,userVo);
         HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("user", user);
+        hashMap.put("user", userVo);
         hashMap.put("token", token);
         return hashMap;
     }

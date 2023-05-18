@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ilovesshan.im.mapper.MessageMapper">
+
+    <insert id="insert">
+        insert into message(`from`, `to`, `type`, `content`, `time`) values (#{from}, #{to}, #{type}, #{content}, #{time});
+    </insert>
+
+
+    <delete id="deleteByIdAndFromId">
+        delete from message where id = #{messageId} and `from` = #{fromUserId};
+    </delete>
+
+    <select id="selectList" resultType="message">
+        select
+            id, `from`, `to`, type, content, time
+        from
+            message
+        where
+            (`from` = #{uid} and `to` = #{fid}) or (`from` = #{fid} and `to` = #{uid})
+        order by
+            time asc;
+    </select>
+
+    <select id="selectById" resultType="message">
+        select
+            id, `from`, `to`, type, content, time
+        from
+            message
+        where
+            id = #{id}
+    </select>
+</mapper>

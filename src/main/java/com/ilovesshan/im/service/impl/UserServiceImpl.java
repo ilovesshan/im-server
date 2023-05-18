@@ -2,6 +2,7 @@ package com.ilovesshan.im.service.impl;
 
 import com.ilovesshan.im.mapper.UserMapper;
 import com.ilovesshan.im.model.vo.FriendVo;
+import com.ilovesshan.im.model.vo.UserVo;
 import com.ilovesshan.im.service.UserService;
 import org.springframework.stereotype.Service;
 
@@ -24,5 +25,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public FriendVo queryUser(String kw) {
         return userMapper.selectByIdOrUsername(kw);
+    }
+
+    @Override
+    public UserVo queryUserById(long id) {
+        return userMapper.selectByIds(id);
     }
 }

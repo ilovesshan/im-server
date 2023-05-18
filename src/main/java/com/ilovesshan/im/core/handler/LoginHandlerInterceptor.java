@@ -22,7 +22,7 @@ public class LoginHandlerInterceptor implements HandlerInterceptor {
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         String authorization = request.getHeader("Authorization");
-        if (!StringUtils.hasText(authorization) && authorization.contains("Bearer ")) {
+        if (!(StringUtils.hasText(authorization) && authorization.contains("Bearer "))) {
             throw new ImException(R.ERROR_NO_AUTHENTICATION);
         }
         // 校验Token有效性
