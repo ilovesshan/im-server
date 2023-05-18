@@ -1,4 +1,4 @@
-package com.ilovesshan.im.utils;
+package com.ilovesshan.im.core.utils;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

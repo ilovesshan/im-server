@@ -1,8 +1,8 @@
-package com.ilovesshan.im.handler;
+package com.ilovesshan.im.core.handler;
 
-import com.ilovesshan.im.exception.ImException;
-import com.ilovesshan.im.utils.R;
-import com.ilovesshan.im.utils.RestExceptionResponse;
+import com.ilovesshan.im.core.exception.ImException;
+import com.ilovesshan.im.core.utils.R;
+import com.ilovesshan.im.core.utils.RestExceptionResponse;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MDC;
 import org.springframework.http.HttpStatus;

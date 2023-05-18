@@ -1,10 +1,10 @@
 package com.ilovesshan.im.service.impl;
 
-import com.ilovesshan.im.exception.ImException;
+import com.ilovesshan.im.core.exception.ImException;
 import com.ilovesshan.im.mapper.UserMapper;
 import com.ilovesshan.im.model.po.User;
 import com.ilovesshan.im.service.LoginService;
-import com.ilovesshan.im.utils.JwtUtil;
+import com.ilovesshan.im.core.utils.JwtUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;

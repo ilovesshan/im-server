@@ -1,7 +1,7 @@
-package com.ilovesshan.im.handler;
+package com.ilovesshan.im.core.handler;
 
-import com.ilovesshan.im.exception.ImException;
-import com.ilovesshan.im.utils.R;
+import com.ilovesshan.im.core.exception.ImException;
+import com.ilovesshan.im.core.utils.R;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerInterceptor;
 

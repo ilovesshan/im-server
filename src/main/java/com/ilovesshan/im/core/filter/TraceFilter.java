@@ -1,4 +1,4 @@
-package com.ilovesshan.im.filter;
+package com.ilovesshan.im.core.filter;
 
 import org.slf4j.MDC;
 import org.springframework.core.annotation.Order;

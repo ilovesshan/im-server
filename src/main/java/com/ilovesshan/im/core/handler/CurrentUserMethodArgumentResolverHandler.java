@@ -1,10 +1,10 @@
-package com.ilovesshan.im.handler;
+package com.ilovesshan.im.core.handler;
 
-import com.ilovesshan.im.config.CurrentUser;
-import com.ilovesshan.im.exception.ImException;
+import com.ilovesshan.im.core.config.CurrentUser;
+import com.ilovesshan.im.core.exception.ImException;
+import com.ilovesshan.im.core.utils.JwtUtil;
 import com.ilovesshan.im.model.po.User;
-import com.ilovesshan.im.utils.JwtUtil;
-import com.ilovesshan.im.utils.R;
+import com.ilovesshan.im.core.utils.R;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.MethodParameter;
 import org.springframework.util.StringUtils;

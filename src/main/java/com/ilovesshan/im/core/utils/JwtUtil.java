@@ -1,4 +1,4 @@
-package com.ilovesshan.im.utils;
+package com.ilovesshan.im.core.utils;
 
 
 import com.alibaba.fastjson.JSON;

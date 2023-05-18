@@ -1,7 +1,7 @@
 package com.ilovesshan.im.controller;
 
 import com.ilovesshan.im.service.LoginService;
-import com.ilovesshan.im.utils.R;
+import com.ilovesshan.im.core.utils.R;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;

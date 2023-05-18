@@ -1,4 +1,4 @@
-package com.ilovesshan.im.config;
+package com.ilovesshan.im.core.config;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

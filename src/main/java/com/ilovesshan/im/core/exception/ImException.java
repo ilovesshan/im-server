@@ -1,4 +1,4 @@
-package com.ilovesshan.im.exception;
+package com.ilovesshan.im.core.exception;
 
 import lombok.Data;
 import lombok.EqualsAndHashCode;
