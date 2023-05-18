@@ -1,6 +1,7 @@
 package com.ilovesshan.im.mapper;
 
 import com.ilovesshan.im.model.po.User;
+import com.ilovesshan.im.model.vo.FriendVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -15,4 +16,6 @@ import org.apache.ibatis.annotations.Param;
 @Mapper
 public interface UserMapper {
     User selectUserByNameAndPwd(@Param("username") String username, @Param("password") String password);
+
+    FriendVo selectByIdOrUsername(String kw);
 }

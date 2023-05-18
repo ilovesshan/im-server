@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ilovesshan.im.mapper.ApplyMapper">
+
+    <insert id="insert">
+        insert into apply (uid, tid) values (#{uid}, #{tid});
+    </insert>
+
+    <select id="selectByUidAndTid" resultType="apply">
+        select id, uid, tid from apply where uid = #{uid} and tid = #{tid};
+    </select>
+
+</mapper>

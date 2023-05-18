@@ -6,9 +6,7 @@ import com.ilovesshan.im.model.vo.FriendVo;
 import com.ilovesshan.im.service.FriendService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
 import java.util.List;
@@ -34,5 +32,19 @@ public class FriendController {
     public R queryFriendList() {
         List<FriendVo> friendVoList = friendService.queryFriendList(Long.parseLong(UserCache.get("userId")));
         return R.success(R.SUCCESS_MESSAGE_SELECT, friendVoList);
+    }
+
+    @ApiOperation("查询好友")
+    @GetMapping("/{kw}")
+    public R queryFriend(@PathVariable("kw") String kw) {
+        FriendVo friendVo = friendService.queryFriend(kw);
+        return R.success(R.SUCCESS_MESSAGE_SELECT, friendVo);
+    }
+
+    @ApiOperation("添加好友")
+    @PostMapping("/{fid}")
+    public R addFriend(@PathVariable("fid") long fid) {
+        boolean isSuccess = friendService.addFriend(Long.parseLong(UserCache.get("userId")), fid);
+        return isSuccess ? R.success(R.SUCCESS_MESSAGE) : R.fail(R.SUCCESS_MESSAGE);
     }
 }

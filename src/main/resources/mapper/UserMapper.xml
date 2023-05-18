@@ -7,4 +7,8 @@
     <select id="selectUserByNameAndPwd" resultType="user">
         select id , username , password, image from user where username like #{username} and password like #{password};
     </select>
+
+    <select id="selectByIdOrUsername" resultType="friendVo">
+        select id , username , image from user where username like #{kw} or id = #{kw};
+    </select>
 </mapper>

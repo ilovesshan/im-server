@@ -2,8 +2,6 @@ package com.ilovesshan.im.service;
 
 import com.ilovesshan.im.model.vo.FriendVo;
 
-import java.util.List;
-
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,10 +9,6 @@ import java.util.List;
  * @date: 2023/5/18
  * @description:
  */
-public interface FriendService {
-    List<FriendVo> queryFriendList(long id);
-
-    boolean addFriend(long uid, long fid);
-
-    FriendVo queryFriend(String kw);
+public interface UserService {
+    FriendVo queryUser(String kw);
 }
