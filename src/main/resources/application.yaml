@@ -14,32 +14,10 @@ spring:
       connection-timeout: 30000
       connection-test-query: SELECT 1
 
-jwt:
-  tokenHeader: Authorization
-  secret: eiorjeowijfioewjfdksjfoisd
-  expiration: 1800000
-  tokenHead: Bearer
-
-
 mybatis:
   mapper-locations: classpath*:mapper/*.xml
   configuration:
     use-generated-keys: true
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-  type-aliases-package: com.ilovesshan.im.model.po
-
-
-knife4j:
-  enable: true
-  openapi:
-    title: Knife4j官方文档
-    description: "`我是测试`,**你知道吗**
-    # aaa"
-    email: xiaoymin@foxmail.com
-    concat: 八一菜刀
-    url: https://docs.xiaominfo.com
-    version: v4.0
-    license: Apache 2.0
-    license-url: https://stackoverflow.com/
-    terms-of-service-url: https://stackoverflow.com/
+  type-aliases-package: com.ilovesshan.im.model

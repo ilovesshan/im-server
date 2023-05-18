@@ -1,7 +1,8 @@
 package com.ilovesshan.im.controller;
 
-import com.ilovesshan.im.service.LoginService;
 import com.ilovesshan.im.core.utils.R;
+import com.ilovesshan.im.model.dto.UserDto;
+import com.ilovesshan.im.service.LoginService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +29,7 @@ public class LoginController {
 
     @ApiOperation("用户登录")
     @PostMapping("/login")
-    public R login(@RequestBody Map<String, String> loginParams) {
+    public R login(@RequestBody UserDto loginParams) {
         Map<String, Object> loginResult = loginService.login(loginParams);
         return R.success(R.SUCCESS_MESSAGE_LOGIN, loginResult);
     }

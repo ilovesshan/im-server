@@ -7,9 +7,10 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class User {
-    private long id;
-    private String username;
-    private String password;
-    private String image;
+public class Friend {
+
+  private long id;
+  private long uid;
+  private long fid;
+
 }

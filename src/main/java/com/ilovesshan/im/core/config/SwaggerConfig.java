@@ -6,6 +6,8 @@ import springfox.documentation.builders.PathSelectors;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
+import springfox.documentation.swagger2.annotations.EnableSwagger2WebMvc;
+
 
 /**
  * Created with IntelliJ IDEA.
@@ -16,6 +18,7 @@ import springfox.documentation.spring.web.plugins.Docket;
  */
 
 @Configuration
+@EnableSwagger2WebMvc
 public class SwaggerConfig {
 
     @Bean
@@ -27,5 +30,4 @@ public class SwaggerConfig {
                 .paths(PathSelectors.regex("(?!/error.*).*"))
                 .build();
     }
-
 }

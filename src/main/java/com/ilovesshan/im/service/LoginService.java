@@ -1,5 +1,7 @@
 package com.ilovesshan.im.service;
 
+import com.ilovesshan.im.model.dto.UserDto;
+
 import java.util.Map;
 
 /**
@@ -11,5 +13,5 @@ import java.util.Map;
  */
 public interface LoginService {
 
-    Map<String,Object> login(Map<String,String> loginParams);
+    Map<String,Object> login(UserDto loginParams);
 }

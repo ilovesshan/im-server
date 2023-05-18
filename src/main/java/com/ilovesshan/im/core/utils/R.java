@@ -26,6 +26,7 @@ public class R implements Serializable {
 
     public static final int SUCCESS_CODE = 200;
     public static final int ERROR_CODE_CLIENT = -200;
+    public static final int ERROR_CODE_BAD_REQUEST = 400;
     public static final int ERROR_CODE_AUTHORIZATION = 401;
     public static final int ERROR_CODE_FORBIDDEN = 403;
     public static final int ERROR_CODE_INTERNAL_SERVER = 500;
@@ -44,24 +45,25 @@ public class R implements Serializable {
     public static final String ERROR_MESSAGE_UPDATE = "更新失败";
 
     public static final String SUCCESS_MESSAGE_LOGIN = "登录成功";
-    public static final String ERROR_MESSAGE_LOGIN = "登录失败";
-
     public static final String SUCCESS_MESSAGE_REGISTER = "注册成功";
-    public static final String ERROR_MESSAGE_REGISTER = "注册失败";
-
     public static final String SUCCESS_MESSAGE_LOGOUT = "退出登录成功";
+    public static final String ERROR_MESSAGE_LOGIN = "登录失败";
+    public static final String ERROR_MESSAGE_REGISTER = "注册失败";
     public static final String ERROR_MESSAGE_LOGOUT = "退出登录失败";
+
 
     public static final String ERROR_MESSAGE_FORBIDDEN = "暂无权限访问/操作该资源";
     public static final String ERROR_INSUFFICIENT_AUTHENTICATION = "身份认证失败，无效的令牌";
+    public static final String ERROR_NO_AUTHENTICATION = "身份认证失败，请携带令牌";
     public static final String ERROR_WX_VALID_CODE = "无效的code,请到微信开发平台校验";
+
 
     public static final String ERROR_USER_DISABLED = "账户不可用";
     public static final String ERROR_USER_LOCKED = "账户锁定";
     public static final String ERROR_USER_NAME_OR_PASSWORD = "用户名或者密码错误";
-    public static final String ERROR_OLD_PASSWORD = "旧密码错误";
     public static final String ERROR_USER_NOT_FOUND = "用户不存在";
     public static final String ERROR_USER_ALREADY_EXIST = "用户已经存在";
+    public static final String ERROR_USER_OLD_PASSWORD = "旧密码错误";
 
 
     public static final String ERROR_RESOURCES_NOTFOUND = "资源不存在";
@@ -70,6 +72,8 @@ public class R implements Serializable {
     public static final String ERROR_ATTACHMENT_UPLOAD = "附件上传失败";
     public static final String ERROR_ATTACHMENT_NOTFOUND = "附件不存在";
 
+
+    public static final String ERROR_MESSAGE_INTERVAL = "服务器处理请求失败，请联系管理员查看日志信息";
 
     private Integer code;
     private String message;
