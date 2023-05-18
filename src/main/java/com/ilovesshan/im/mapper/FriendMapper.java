@@ -2,6 +2,7 @@ package com.ilovesshan.im.mapper;
 
 import com.ilovesshan.im.model.vo.FriendVo;
 import org.apache.ibatis.annotations.Mapper;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ import java.util.List;
 @Mapper
 public interface FriendMapper {
     List<FriendVo> selectByUid(long id);
+
+    void insert(@Param("uid") long userId, @Param("fid")long fid);
 }

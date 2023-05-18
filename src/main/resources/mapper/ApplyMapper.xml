@@ -8,8 +8,16 @@
         insert into apply (uid, tid) values (#{uid}, #{tid});
     </insert>
 
+    <delete id="deleteByUidAndTid">
+        delete from apply where (uid = #{uid} and tid = #{tid}) or (tid = #{uid} and uid = #{tid});
+    </delete>
+
     <select id="selectByUidAndTid" resultType="apply">
         select id, uid, tid from apply where uid = #{uid} and tid = #{tid};
+    </select>
+
+    <select id="selectByTid" resultType="friendVo">
+        select u.id id, u.username, u.image from apply a left join user u on u.id = a.uid where a.tid = #{tid};
     </select>
 
 </mapper>

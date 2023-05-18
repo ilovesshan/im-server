@@ -47,4 +47,18 @@ public class FriendController {
         boolean isSuccess = friendService.addFriend(Long.parseLong(UserCache.get("userId")), fid);
         return isSuccess ? R.success(R.SUCCESS_MESSAGE) : R.fail(R.SUCCESS_MESSAGE);
     }
+
+    @ApiOperation("查询好友申请列表")
+    @PostMapping("/apply")
+    public R addFriend() {
+        List<FriendVo> friendVoList = friendService.queryApplyList(Long.parseLong(UserCache.get("userId")));
+        return R.success(R.SUCCESS_MESSAGE_SELECT, friendVoList);
+    }
+
+    @ApiOperation("同意/拒绝好友申请")
+    @PutMapping("/apply/{type}/{fid}")
+    public R agreeOrRefuseFriendApply(@PathVariable("type") String type, @PathVariable("fid") long fid) {
+        boolean isSuccess = friendService.agreeOrRefuseFriendApply(type, Long.parseLong(UserCache.get("userId")), fid);
+        return isSuccess ? R.success(R.SUCCESS_MESSAGE) : R.fail(R.SUCCESS_MESSAGE);
+    }
 }
