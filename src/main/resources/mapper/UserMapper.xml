@@ -9,7 +9,7 @@
     </select>
 
     <select id="selectByIdOrUsername" resultType="friendVo">
-        select id , username , image from user where username like #{kw} or id = #{kw};
+        select distinct id , username , image from user where username like concat("%",#{kw},"%") or id = #{kw};
     </select>
 
     <select id="selectByIds" resultType="userVo">

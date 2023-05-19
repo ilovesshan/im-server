@@ -35,7 +35,7 @@ public class MessageController {
     }
 
     @ApiOperation("查询消息列表")
-    @PostMapping("/{fid}")
+    @GetMapping("/{fid}")
     public R queryMessageList(@PathVariable("fid") long fid) {
         MessageVo messageVo = messageService.queryMessageList(Long.parseLong(UserCache.get("userId")), fid);
         return R.success(R.SUCCESS_MESSAGE_SELECT, messageVo);

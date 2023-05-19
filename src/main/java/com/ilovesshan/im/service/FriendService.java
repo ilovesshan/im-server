@@ -16,7 +16,7 @@ public interface FriendService {
 
     boolean addFriend(long uid, long fid);
 
-    FriendVo queryFriend(String kw);
+    List<FriendVo>  queryFriend(String kw);
 
     List<FriendVo> queryApplyList(long userId);
 

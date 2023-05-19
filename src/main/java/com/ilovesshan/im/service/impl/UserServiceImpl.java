@@ -7,6 +7,7 @@ import com.ilovesshan.im.service.UserService;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 /**
  * Created with IntelliJ IDEA.
@@ -23,7 +24,7 @@ public class UserServiceImpl implements UserService {
     private  UserMapper userMapper;
 
     @Override
-    public FriendVo queryUser(String kw) {
+    public List<FriendVo> queryUser(String kw) {
         return userMapper.selectByIdOrUsername(kw);
     }
 

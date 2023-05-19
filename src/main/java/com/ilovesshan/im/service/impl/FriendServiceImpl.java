@@ -43,7 +43,7 @@ public class FriendServiceImpl implements FriendService {
     }
 
     @Override
-    public FriendVo queryFriend(String kw) {
+    public  List<FriendVo>  queryFriend(String kw) {
         return userService.queryUser(kw);
     }
 

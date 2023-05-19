@@ -3,6 +3,8 @@ package com.ilovesshan.im.service;
 import com.ilovesshan.im.model.vo.FriendVo;
 import com.ilovesshan.im.model.vo.UserVo;
 
+import java.util.List;
+
 /**
  * Created with IntelliJ IDEA.
  *
@@ -11,7 +13,7 @@ import com.ilovesshan.im.model.vo.UserVo;
  * @description:
  */
 public interface UserService {
-    FriendVo queryUser(String kw);
+    List<FriendVo> queryUser(String kw);
 
     UserVo queryUserById(long id);
 }

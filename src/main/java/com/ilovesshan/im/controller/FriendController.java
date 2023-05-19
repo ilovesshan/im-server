@@ -34,11 +34,11 @@ public class FriendController {
         return R.success(R.SUCCESS_MESSAGE_SELECT, friendVoList);
     }
 
-    @ApiOperation("查询好友")
+    @ApiOperation("搜索朋友")
     @GetMapping("/{kw}")
     public R queryFriend(@PathVariable("kw") String kw) {
-        FriendVo friendVo = friendService.queryFriend(kw);
-        return R.success(R.SUCCESS_MESSAGE_SELECT, friendVo);
+        List<FriendVo> friendVoList = friendService.queryFriend(kw);
+        return R.success(R.SUCCESS_MESSAGE_SELECT, friendVoList);
     }
 
     @ApiOperation("添加好友")
@@ -49,7 +49,7 @@ public class FriendController {
     }
 
     @ApiOperation("查询好友申请列表")
-    @PostMapping("/apply")
+    @GetMapping("/apply")
     public R addFriend() {
         List<FriendVo> friendVoList = friendService.queryApplyList(Long.parseLong(UserCache.get("userId")));
         return R.success(R.SUCCESS_MESSAGE_SELECT, friendVoList);
