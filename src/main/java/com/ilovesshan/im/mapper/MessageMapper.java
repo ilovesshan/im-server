@@ -1,6 +1,7 @@
 package com.ilovesshan.im.mapper;
 
 import com.ilovesshan.im.model.po.Message;
+import com.ilovesshan.im.model.vo.RecentlyMessageVo;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -23,4 +24,6 @@ public interface MessageMapper {
     Message selectById(long id);
 
     int deleteByIdAndFromId(@Param("messageId") long messageId, @Param("fromUserId")long fromUserId);
+
+    List<RecentlyMessageVo> queryRecentlyMessageList(long userId);
 }

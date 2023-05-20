@@ -6,6 +6,7 @@ import com.ilovesshan.im.mapper.MessageMapper;
 import com.ilovesshan.im.model.dto.MessageDto;
 import com.ilovesshan.im.model.po.Message;
 import com.ilovesshan.im.model.vo.MessageVo;
+import com.ilovesshan.im.model.vo.RecentlyMessageVo;
 import com.ilovesshan.im.model.vo.UserVo;
 import com.ilovesshan.im.service.MessageService;
 import com.ilovesshan.im.service.UserService;
@@ -83,5 +84,25 @@ public class MessageServiceImpl implements MessageService {
             throw new ImException("仅支持撤回1分钟以内的消息");
         }
         return messageMapper.deleteByIdAndFromId(messageId, fromUserId) > 0;
+    }
+
+    @Override
+    public List<RecentlyMessageVo> queryRecentlyMessageList(long userId) {
+        List<RecentlyMessageVo> recentlyMessageVoList = messageMapper.queryRecentlyMessageList(userId);
+
+        for (RecentlyMessageVo recentlyMessageVo : recentlyMessageVoList) {
+            long targetSelectUserId = recentlyMessageVo.getFrom();
+            // 当前这条消息可能是我发出的也有可能是我接收到的，不管什么条件界面展示都是展示对方的信息，只不过消息展示最近的一条
+            if (recentlyMessageVo.getFrom() == userId) {
+                targetSelectUserId = recentlyMessageVo.getTo();
+            }
+            // 根据用户ID查询用户信息
+            UserVo userVo = userService.queryUserById(targetSelectUserId);
+            // 数据填充
+            recentlyMessageVo.setUserId(userVo.getId());
+            recentlyMessageVo.setUsername(userVo.getUsername());
+            recentlyMessageVo.setImage(userVo.getImage());
+        }
+        return recentlyMessageVoList;
     }
 }

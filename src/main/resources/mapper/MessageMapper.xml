@@ -32,4 +32,22 @@
         where
             id = #{id}
     </select>
+
+    <select id="queryRecentlyMessageList" resultType="recentlyMessageVo">
+        select *  from (
+            select
+                *
+            from message where `time` in (
+                select
+                    max(`time`)  from message
+                where
+                      `to` = #{uid} or `from` = #{uid}
+                group by
+                        concat( if ( `from` &gt; `to`, `from`, `to` ), if ( `from` &lt;`to`, `from`, `to` )))
+                        and ( `to` = #{uid} or `from` = #{uid})
+                order by
+                        id desc
+        ) c
+        order by  c.`time` desc;
+    </select>
 </mapper>
