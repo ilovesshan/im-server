@@ -40,4 +40,9 @@ public class JwtUtil {
     private static Date generatorExpiration() {
         return new Date(System.currentTimeMillis() + 9000000);
     }
+
+    public static void main(String[] args) {
+        User user = JwtUtil.parseToken("eyJhbGciOiJIUzUxMiJ9.eyJleHAiOjE2ODQ1MTMwNjksInVzZXIiOnsiaWQiOjIsInVzZXJuYW1lIjoieHlzIiwicGFzc3dvcmQiOiIxMjM0NTYiLCJpbWFnZSI6Imh0dHBzOi8vaW1nMi5iYWlkdS5jb20vaXQvdT0xMDM1MzU2NTA2LDM3MTM2OTgzNDEmZm09MjUzJmFwcD0xMzgmc2l6ZT13OTMxJm49MCZmPUpQRUcmZm10PWF1dG8_c2VjPTE2NzU5NjIwMDAmdD02ZWY4ZmUyNGI0OWJiODRlY2EwZmVlYWU5ZWM2NzhkNSJ9fQ.mCQvsZoVSTOb3YpRpeIFlDx976Au_FHmSYjCFvPWgQeULCbvnB8VRnzk1dazhwEHXlCY0bmldbo8wEhx8CxLWA");
+        System.out.println("user = " + user);
+    }
 }
